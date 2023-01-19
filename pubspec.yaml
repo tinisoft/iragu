@@ -1,0 +1,36 @@
+name: iragu
+description: Dart bindings for libmypaint.
+version: 1.0.0
+repository: https://github.com/tinisoft/iragu
+
+environment:
+  sdk: ">=2.18.6 <4.0.0"
+
+# Add regular dependencies here.
+dependencies:
+  ffi: ^2.0.1
+  # path: ^1.8.0
+
+ffigen:
+  output: "lib/ffi/libmypaint_dart_bindings.dart"
+  headers:
+    entry-points:
+      - "libmypaint/mypaint-brush.h"
+      - "libmypaint/mypaint-brush-settings.h"
+      - "libmypaint/mypaint-surface.h"
+      - "libmypaint/mypaint-fixed-tiled-surface.h"
+      - "libmypaint/mypaint-tiled-surface.h"
+  enums:
+    member-rename:
+      "(.*)":
+        "MYPAINT_SYMMETRY_TYPE_(.*)": "$1"
+        "MYPAINT_SYMMETRY_TYPES_(.*)": "TYPES_$1"
+        "MYPAINT_BRUSH_INPUT_(.*)": "$1"
+        "MYPAINT_BRUSH_SETTING_(.*)": "$1"
+        "MYPAINT_BRUSH_STATE_(.*)": "$1"
+        "MYPAINT_BRUSH_STATES_(.*)": "STATES_$1"
+
+dev_dependencies:
+  ffigen: ^7.2.4
+  lints: ^2.0.0
+  test: ^1.21.0
