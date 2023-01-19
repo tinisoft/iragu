@@ -1,0 +1,3 @@
+[submodule "libmypaint"]
+	path = libmypaint
+	url = ./libmypaint/
