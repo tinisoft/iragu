@@ -75,7 +75,9 @@ class MyPaintSurface {
   }
 
   MyPaintRectangles endAtomic(int numRectangles) {
+    print("endAtomic is called\n");
     Pointer<MyPaintRectangles> roi = malloc<MyPaintRectangles>(1);
+    roi.ref.rectangles = malloc<MyPaintRectangle>(numRectangles);
     roi.ref.num_rectangles = numRectangles;
     CLib().mypaint_surface_end_atomic(surface, roi);
     return roi.ref;
