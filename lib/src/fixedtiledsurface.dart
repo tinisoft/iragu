@@ -23,7 +23,7 @@ class MyPaintFixedTiledSurface extends MyPaintSurface {
 
   Uint8List image() {
     int bufferSize = width * height * 4;
-    Pointer<Uint8> img = malloc.allocate<Uint8>(bufferSize);
+    Pointer<Uint8> img = malloc<Uint8>(bufferSize);
     CLib().mypaint_fixed_tiled_surface_as_uint8(ftsurface, img);
     return img.asTypedList(bufferSize);
   }

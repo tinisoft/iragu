@@ -54,7 +54,7 @@ class MyPaintSurface {
   }
 
   Color getColor(double x, double y, double radius, double paint) {
-    Pointer<Float> args = malloc.allocate<Float>(4);
+    Pointer<Float> args = malloc<Float>(4);
     CLib().mypaint_surface_get_color(surface, x, y, radius, args.elementAt(0),
         args.elementAt(1), args.elementAt(2), args.elementAt(3), paint);
     return Color(args.elementAt(0).value, args.elementAt(1).value,
@@ -75,7 +75,7 @@ class MyPaintSurface {
   }
 
   MyPaintRectangles endAtomic(int numRectangles) {
-    Pointer<MyPaintRectangles> roi = malloc.allocate<MyPaintRectangles>(1);
+    Pointer<MyPaintRectangles> roi = malloc<MyPaintRectangles>(1);
     roi.ref.num_rectangles = numRectangles;
     CLib().mypaint_surface_end_atomic(surface, roi);
     return roi.ref;

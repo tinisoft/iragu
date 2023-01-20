@@ -98,8 +98,8 @@ class MyPaintBrush {
   List<double> getMappingPoint(int paramid, int input, int index) {
     List<double> ret = [];
     Pointer<Float> x, y;
-    x = malloc.allocate<Float>(1);
-    y = malloc.allocate<Float>(1);
+    x = malloc<Float>(1);
+    y = malloc<Float>(1);
 
     CLib().mypaint_brush_get_mapping_point(brush, paramid, input, index, x, y);
     ret.add(x.value);
@@ -137,7 +137,7 @@ class MyPaintBrush {
   }
 
   BrushSmudgeState getSmudgeBucketState(int bucketIndex) {
-    Pointer<Float> args = malloc.allocate<Float>(9);
+    Pointer<Float> args = malloc<Float>(9);
     CLib().mypaint_brush_get_smudge_bucket_state(
         brush,
         bucketIndex,

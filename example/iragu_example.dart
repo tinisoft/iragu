@@ -34,6 +34,7 @@ void main() {
   MyPaintRectangles rois;
   var numRectangles = 1;
   surface.endAtomic(numRectangles);
-  Uint8List im = surface.image();
+  Uint8List? im = surface.image();
   print("$im");
+  im = null;
 }
