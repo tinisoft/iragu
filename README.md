@@ -10,7 +10,7 @@ Build libmypaint from here https://github.com/tinisoft/libmypaint and install it
 ## Usage
 
 Simple example and checkout examples folder how to use with flutter.
-`
+```
 import 'dart:typed_data';
 
 import 'package:iragu/iragu.dart';
@@ -51,7 +51,7 @@ void main() {
   print("$im");
   im = null;
 }
-`
+```
 ## Additional information
 Welcome to any feature requests, pull requests.
 
