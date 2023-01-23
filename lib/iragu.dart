@@ -11,6 +11,8 @@ export 'src/surface.dart';
 
 export 'src/fixedtiledsurface.dart';
 
+export 'src/brushpreset.dart';
+
 export 'ffi/libmypaint_dart_bindings.dart'
     show
         MyPaintBrushInput,

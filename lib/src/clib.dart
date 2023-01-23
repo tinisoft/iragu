@@ -10,6 +10,5 @@ class CLib extends cmp.NativeLibrary {
   }
 
   CLib._internal()
-      : super(DynamicLibrary.open(
-            "/home/ark/work/iragu/libmypaint/.libs/libmypaint-2.0.so"));
+      : super(DynamicLibrary.open("/usr/local/lib/libmypaint-2.0.so"));
 }
