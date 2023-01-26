@@ -57,8 +57,12 @@ class BrushPreset {
 const String DEFAULT_COLLECTION = ".";
 
 class BrushPresetLibrary {
+  static final BrushPresetLibrary _singleton = BrushPresetLibrary._internal();
   static final Map<String, List<BrushPreset>> library = {};
-  BrushPresetLibrary() {}
+  factory BrushPresetLibrary() {
+    return _singleton;
+  }
+  BrushPresetLibrary._internal() {}
 
   Future<void> addCollection(String dirPath) async {
     var brushes = await loadCollection(dirPath);

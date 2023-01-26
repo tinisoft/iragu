@@ -9,9 +9,14 @@ import 'surface.dart';
 
 class MyPaintFixedTiledSurface extends MyPaintSurface {
   late final Pointer<cmp.MyPaintFixedTiledSurface> ftsurface;
-  MyPaintFixedTiledSurface(int width, int height) : super.empty() {
+  Pointer<Uint8> img;
+  late int bufferSize;
+  MyPaintFixedTiledSurface(int width, int height)
+      : img = malloc<Uint8>(width * height * 4),
+        super.empty() {
     ftsurface = CLib().mypaint_fixed_tiled_surface_new(width, height);
     surface = CLib().mypaint_fixed_tiled_surface_interface(ftsurface);
+    bufferSize = width * height * 4;
   }
   int get width {
     return CLib().mypaint_fixed_tiled_surface_get_width(ftsurface);
@@ -22,8 +27,6 @@ class MyPaintFixedTiledSurface extends MyPaintSurface {
   }
 
   Uint8List image() {
-    int bufferSize = width * height * 4;
-    Pointer<Uint8> img = malloc<Uint8>(bufferSize);
     CLib().mypaint_fixed_tiled_surface_as_uint8(ftsurface, img);
     return img.asTypedList(bufferSize);
   }
